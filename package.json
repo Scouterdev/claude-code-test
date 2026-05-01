@@ -41,11 +41,13 @@
     "scripts/setup-chrome-mcp.mjs"
   ],
   "scripts": {
-    "build": "bun run build.ts",
+    "build": "vinxi build",
+    "build:cli": "bun run build.ts",
     "build:vite": "vite build && bun run scripts/post-build.ts",
     "build:vite:only": "vite build",
     "build:bun": "bun run build.ts",
-    "dev": "bun run scripts/dev.ts",
+    "dev": "vinxi dev",
+    "dev:cli": "bun run scripts/dev.ts",
     "dev:inspect": "bun run scripts/dev-debug.ts",
     "prepublishOnly": "bun run build:vite",
     "lint": "biome lint .",
@@ -66,12 +68,17 @@
     "docs:dev": "npx mintlify dev",
     "typecheck": "tsc --noEmit",
     "test:all": "bun run typecheck && bun test",
+    "start": "vinxi start",
     "rcs": "bun run scripts/rcs.ts"
   },
   "dependencies": {
     "@agentclientprotocol/sdk": "^0.19.0",
     "@claude-code-best/mcp-chrome-bridge": "^3.0.1",
+    "@tanstack/react-router": "^1.169.1",
+    "@tanstack/react-start": "^1.167.58",
     "highlight.js": "^11.11.1",
+    "react-dom": "^19.2.5",
+    "vinxi": "^0.5.11",
     "ws": "^8.20.0"
   },
   "devDependencies": {
@@ -136,6 +143,7 @@
     "@types/proper-lockfile": "^4.1.4",
     "@types/qrcode": "^1.5.6",
     "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "@types/react-reconciler": "^0.33.0",
     "@types/semver": "^7.7.1",
     "@types/sharp": "^0.32.0",
